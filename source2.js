@@ -662,21 +662,12 @@ document
 
     parsedData.forEach((obj) => {
       var flag = 0;
-      if (obj.title === text_search) {
+      if(obj.title.includes(text_search))
+      {
         search.push(obj);
-      } else {
-        for (var i = 0; i < text_search.length; i++) {
-          if (i < obj.title.length) {
-            if (obj.title[i] != text_search[i]) {
-              flag = 1;
-              break;
-            }
-          }
-        }
-        if (flag === 0) {
-          search.push(obj);
-        }
       }
+     
+     
     });
 
     localStorage.setItem("userDataSearch", JSON.stringify(search));
