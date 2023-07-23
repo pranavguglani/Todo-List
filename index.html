@@ -1,33 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do List</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
     <div class="container">
-            <h1>Todo List</h1>
-            <div class="input">
+      <h1>Todo List</h1>
+      <div class="input">
+        <form id="myForm">
+          <input
+            type="text"
+            name="add_item"
+            placeholder="Enter Task"
+            autocomplete="off"
+            id="input_id"
+          />
 
-                <form id="myForm">
-                    <input type="text" name="add_item" placeholder="Enter Task" autocomplete="off" id="input_id">
-                    <button type="submit" id="submitButton">Add</button>
-                    
-                  </form>
-            </div>
+          <input
+            type="date"
+            id="date_id"
+            name="trip-start"
+            value=""
+            min=""
+            max="2025-12-31"
+          />
+          <select name="category_list" id="category">
+            <option value="" selected disabled>Category</option>
+            <option value="Work">Work</option>
+            <option value="Home">Home</option>
+            <option value="Personal">Personal</option>
+            <option value="Random">Random</option>
+          </select>
 
-            <div class="list">
+          <select name="priority_list" id="priority">
+            <option value="" selected disabled>Priority</option>
+            <option value="1">High</option>
+            <option value="2">Medium</option>
+            <option value="3">Low</option>
+          </select>
 
-                <ul id="list_items" >
+          <button type="submit" id="submitButton">Add</button>
+        </form>
+      </div>
+      <div class="title_container">
+            
+            <select name="" id="Sort_by">
 
-                </ul>
-            </div>
+              <option value="" selected disabled>Sort By</option>
+              <option value="sort_by_date" id="sort_by_date_id">Due Date of Tasks</option>
+              <option value="sort_by_priority" id="sort_by_priority_id">Priority of Tasks</option>
+  
+              <option value="none" id="sort_none_id">None</option>
+            </select>
+            <select name="" id="filter_by">
+
+              <option value="" selected disabled>Filter By</option>
+              <option value="filter_by_date" id="filter_by_date_id">Due Date of Tasks</option>
+              <option value="filter_by_priority" id="filter_by_priority_id">Priority of Tasks</option>
+              <option value="filter_by_category" id="filter_by_category_id">Category of Tasks</option>
+              <option value="none" id="filter_none_id">None</option>
+            </select>
+
+           
+              <select id="nestedDropdownCategory" style="display: none;">
+                <option value="" selected disabled>Select an option</option>
+                <option value="Work">Work</option>
+                <option value="Home">Home</option>
+                <option value="Personal">Personal</option>
+                <option value="Random">Random</option>
+              </select>
+              <select id="nestedDropdownPriority" style="display: none;">
+                <option value="" selected disabled>Select an option</option>
+                <option value="1">High</option>
+                <option value="2">Medium</option>
+                <option value="3">Low</option>
+              </select>
+              <select name="" id="backlog">
+
+                <option value="" selected disabled>Check Backlogs</option>
+                <option value="missedTasks" id="missedTasks_id">Missed Tasks</option>
+                <option value="pendingTasks" id="pendingTasks_id">Pending Tasks</option>
+                <option value="none" id="backlog_none_id">None</option>
+              </select>
+              
+              <input type="text" name="search" id="search_input" placeholder="Search" autocomplete="off">
+              <button type="submit" id="search_button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg></button>
+          
+
+      </div>
+      <div class="list">
+        <ul id="list_items"></ul>
+      </div>
     </div>
 
-  
     <script src="source2.js"></script>
-</body>
+  </body>
 </html>
